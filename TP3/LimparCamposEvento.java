@@ -1,6 +1,5 @@
 
-/*
- * @author Leticia
+/* @author Leticia e Caroline
  */
 
 import java.awt.*;
