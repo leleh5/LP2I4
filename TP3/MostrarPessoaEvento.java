@@ -11,25 +11,21 @@ import javax.swing.*;
 
 public class MostrarPessoaEvento implements ActionListener {
 
-    private List<Pessoa> pessoas;
+    private Pessoa UmaPessoa;
 
-    public MostrarPessoaEvento(List<Pessoa> listPessoas) {
+    public MostrarPessoaEvento(Pessoa _pessoa) {
         super();
 
-        pessoas = listPessoa;
+        UmaPessoa = _pessoa;
     }
 
     // @Override
     public void actionPerformed(ActionEvent e) {
         String mensagem = "";
 
-        for (Pessoas pessoa : pessoas) {
-            mensagem += pessoa.toString() + "\n";
-        }
+        mensagem += UmaPessoa.toString() + "\n";
 
-        if (pessoas.size() == 0) {
-            mensagem = "Sem registros";
-        }
+        UmaPessoa = new Pessoa();
 
         JOptionPane.showMessageDialog(null, mensagem);
 

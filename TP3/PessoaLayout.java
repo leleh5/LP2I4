@@ -10,16 +10,17 @@ import java.util.List;
 import javax.swing.*;
 
 public class PessoaLayout extends Frame {
-    private static List<Pessoa> pessoas;
+    private static Pessoa UmaPessoa;
 
     public static void main(String[] args) {
-        pessoas = new ArrayList<Pessoa>();
+        UmaPessoa = new Pessoa();
 
         Button ok = new Button("Ok");
         Button limpar = new Button("Limpar");
         Button mostrar = new Button("Mostrar");
         Button sair = new Button("Sair");
         TextField text_numero = new TextField(10);
+        text_numero.setEnabled(false);
         TextField text_nome = new TextField(10);
         TextField text_sexo = new TextField(10);
         TextField text_idade = new TextField(10);
@@ -35,15 +36,15 @@ public class PessoaLayout extends Frame {
         campos.add(text_idade);
 
         limpar.addActionListener(new LimparCamposEvento(campos));
-        ok.addActionListener(new AdicionarPessoaEvento(pessoas, campos));
-        mostrar.addActionListener(new MostrarPessoaEvento(pessoas));
+        ok.addActionListener(new AdicionarPessoaEvento(UmaPessoa, campos));
+        mostrar.addActionListener(new MostrarPessoaEvento(UmaPessoa));
 
         Frame f = new Frame("BoxLayout");
         f.setSize(400, 180);
         f.addWindowListener(new FechaJanela());
         f.setLayout(new BorderLayout());
         Panel painel1 = new Panel();
-        painel1.setLayout(new GridLayout(3, 2, 10, 10));
+        painel1.setLayout(new GridLayout(4, 2, 10, 10));
         painel1.add(new Label("Numero:"));
         painel1.add(text_numero);
         painel1.add(new Label("Nome:"));
